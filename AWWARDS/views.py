@@ -37,7 +37,7 @@ def upload_projects(request):
             return redirect('index')
     else:
         form = ProjectsForm()
-    return render(request,'update_projects.html',{'form':form})
+    return render(request,'upload_projects.html',{'form':form})
 
 @login_required(login_url='/accounts/login')
 def search_projects(request):
