@@ -45,3 +45,8 @@ class RateReview(models.Model):#
 
     def save_ratereview(self):
         self.save()
+
+    @classmethod
+    def search_project(cls,title):
+        project = cls.objects.filter(title__icontains=title)
+        return project
