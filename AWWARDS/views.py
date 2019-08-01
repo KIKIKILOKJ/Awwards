@@ -38,3 +38,11 @@ def upload_projects(request):
     else:
         form = ProjectsForm()
     return render(request,'update_projects.html',{'form':form})
+
+@login_required(login_url='/accounts/login')
+def search_projects(request):
+    if 'projects' in request.GET and request.GET["projects"]:
+        search_term=request.GET.get("projects")
+        searched_projects=Projects.search_by_title(search_term)
+        message=f"{search_term}"
+        return render(request,'search.html',{"message":message,"projects":searched_projects})
