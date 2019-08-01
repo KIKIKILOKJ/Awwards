@@ -46,3 +46,14 @@ def search_projects(request):
         searched_projects=Projects.search_by_title(search_term)
         message=f"{search_term}"
         return render(request,'search.html',{"message":message,"projects":searched_projects})
+
+@login_required(login_url='/accounts/login')
+def profile(request):
+    user = User.objects.all()
+    for user in users:
+        profile = Profile.objects.all()
+        projects=Projects.objects.all()
+        print (user)
+        return render(request,"profile.html",{ "user": user,"profile": profile,"projects": projects})
+        
+
