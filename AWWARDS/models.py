@@ -9,6 +9,15 @@ class Profile(models.Model):
     user=models.OneToOneField(User,null=True)
     pub_date=models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return self.user
+    
+    def save_profile(self):
+        self.save()
+        
+    def delete_profile(self):
+        self.delete()
+    
 class Projects(models.Model):
     title = models.CharField(max_length=30)
     image = models.ImageField(upload_to = 'images')
