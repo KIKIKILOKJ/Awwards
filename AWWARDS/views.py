@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 import datetime as dt
 from .models import Projects
 from django.contrib.auth.decorators import login_required
-from .forms import ProjectsForm
+from .forms import ProjectsForm,EditProfileForm
 
 # Create your views here.
 def convert_dates(dates):
@@ -55,5 +55,19 @@ def profile(request):
         projects=Projects.objects.all()
         print (user)
         return render(request,"profile.html",{ "user": user,"profile": profile,"projects": projects})
-        
+
+@login_required(login_url='/accounts/login')
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.save()
+            return redirect('edit_profile')
+    else:
+        form = EditProfileForm()
+            
+    return render(request,'edit_profile.html',{'form':form})
 
