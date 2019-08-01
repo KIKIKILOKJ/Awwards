@@ -74,7 +74,6 @@ def edit_profile(request):
 @login_required(login_url='/accounts/login')
 def review(request):
     current_user=request.user
-    profile=Profile.objects.filter(user=current_user.id).first()
     projects=Projects.objects.filter(user=current_user.id).first()
     if request.method == 'POST':
         form=ReviewForm(request.POST,request.Files)
