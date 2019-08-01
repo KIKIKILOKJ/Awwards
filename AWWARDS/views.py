@@ -24,3 +24,16 @@ def index(request):
 def projects(request,id):
     projects= Projects.objects.filter(id__icontains = id)
     return render(request,"projects.html",{"projects": projects})
+
+@login_required(login_url='/accounts/login')
+def upload_projects(request):
+    if request.method == 'POST':
+        form = ProjectsForm(request.POST, request.FILES)
+        if form.is_valid():
+            upload=form.save(commit=False)
+            upload.profile = request.user.profile
+            upload.save()
+            return redirect('index')
+    else:
+        form = ProjectsForm()
+    return render(request,'update_projects.html',{'form':form})
