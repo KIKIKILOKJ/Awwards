@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import datetime as dt
+from .models import Projects
 
 # Create your views here.
 def convert_dates(dates):
@@ -12,3 +13,8 @@ def convert_dates(dates):
     '''
     day = days[day_number]
     return day
+
+def index(request):
+    date=dt.date.today
+    projects=Projects.objects.all()
+    return render(request,'index.html',{"date": date, "projects": projects})
