@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 import datetime as dt
 from .models import Projects,Profile
 from django.contrib.auth.decorators import login_required
-from .forms import ProjectsForm,EditProfileForm
+from .forms import ProjectsForm,EditProfileForm,RateReviewForm
 
 # Create your views here.
 def convert_dates(dates):
@@ -76,13 +76,13 @@ def review(request):
     current_user=request.user
     projects=Projects.objects.filter(user=current_user.id).first()
     if request.method == 'POST':
-        form=ReviewForm(request.POST,request.Files)
+        form=RateReviewForm(request.POST,request.Files)
         if form.is_valid():
             review=form.save(commit=False)
             review.project=projects
             review.save
             return redirect('index')
         else:
-            form=ReviewForm()
+            form=RateReviewForm()
         return render(request,'review.html',{"form": form,"profile":profile})
     
