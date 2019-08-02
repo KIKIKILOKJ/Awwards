@@ -30,6 +30,21 @@
 
     </section>
 </div>
-
+<div class="container">
+    <div class="row">
+        {% for projects in projects %}
+        <div class="card text-center">
+            <div class="card-header">
+                <h3> {{ projects.title }} </h3>
+            </div>
+            <div class="card-body">
+                <img id="img" src="{{projects.image.url}}" alt="Project Pic"style="width:400px;height:500px;">
+                <p>Posted <strong>{{projects.pub_date|timesince}}</strong> ago</p>
+                <p>by <strong>{{projects.profile.user}}</strong></p>
+                <a><i class="glyphicon glyphicon-pencil" style="width:50px;font-size:20px;">RATE</i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
