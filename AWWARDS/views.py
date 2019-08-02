@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProjectsForm,EditProfileForm,RateReviewForm
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 def convert_dates(dates):
     # function that gets the weekday number for the date.
