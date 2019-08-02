@@ -3,6 +3,7 @@ import datetime as dt
 from .models import Projects,Profile
 from django.contrib.auth.decorators import login_required
 from .forms import ProjectsForm,EditProfileForm,RateReviewForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 def convert_dates(dates):
@@ -50,7 +51,7 @@ def search_projects(request):
 @login_required(login_url='/accounts/login')
 def profile(request):
     user = User.objects.all()
-    for user in users:
+    for user in user:
         profile = Profile.objects.all()
         projects=Projects.objects.all()
         print (user)
