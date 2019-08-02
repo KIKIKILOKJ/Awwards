@@ -70,7 +70,7 @@ def edit_profile(request):
     else:
         form = EditProfileForm()
             
-    return render(request,'edit_profile.html',{'form':form})
+    return render(request,'Profile/edit_profile.html',{'form':form})
 
 @login_required(login_url='/accounts/login')
 def review(request):
