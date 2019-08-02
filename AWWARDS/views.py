@@ -34,7 +34,7 @@ def upload_projects(request):
         form = ProjectsForm(request.POST, request.FILES)
         if form.is_valid():
             upload=form.save(commit=False)
-            upload.profile = request.user.profile
+            upload.profile = request.user
             upload.save()
             return redirect('index')
     else:

@@ -26,7 +26,7 @@ class Projects(models.Model):
     image = models.ImageField(upload_to = 'images')
     description = models.CharField(max_length=300)
     link = models.CharField(max_length=100)
-    profile = models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
+    profile = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
