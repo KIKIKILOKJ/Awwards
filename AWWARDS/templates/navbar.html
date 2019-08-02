@@ -7,26 +7,30 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-instagram"></i>HOME</a>
+        <a class="navbar-brand" href="{% url 'index' %}"></i>HOME</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {% if user.is_authenticated %}
+          <form class="form-inline" role="search" action="{% url 'search'%}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Projects" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit"><i class="fa fa-search" aria-hidden="true">SEARCH</i></button>
+          </form>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'index' %}"><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{%url 'postImage'%}">New Post <i class="fa fa-picture-o" aria-hidden="true"></i></a>
+              <a class="nav-link" href="{%url 'new_projects'%}">New Project <i class="fa fa-project-diagram" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Account
+                Profile
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'profile' username=user %}">{{user}}<i class="fa fa-user"></i></a>
+                <a class="dropdown-item" href="{% url 'profile' %}">{{user}}</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Logout</a>
               </div>
@@ -40,12 +44,8 @@
               <a class='btn btn-dark' href="/accounts/register">Sign Up</a>
             </li>
             {% endif %}
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
         </div>
       </nav>
-  
+
 </body>
 </html>
