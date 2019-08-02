@@ -2,34 +2,7 @@
 {% load bootstrap4 %}
 {% block content %}
 {{block.super}}
-<div class="container-fluid">
-    <section class="rates">
-            <div class="box-piesite">
-                <ul>
-                    <li class="design">
-                        <div class="piesite" id="pie_0" data-pie="7.25"></div>
-                            <br>
-                            <p>DESIGN</p>
-                        </div>
-                    </li>
-                    <li class="usability">
-                        <div class="piesite" id="pie_2" data-pie="9.52"></div>
-                            <br>
-                            <p>USABILITY</p>
-                        </div>
-                    </li>
 
-                    <li class="content">
-                        <div class="piesite" id="pie_1" data-pie="3.06"></div>
-                            <br>
-                            <p>CONTENT</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-    </section>
-</div>
 <div class="container">
     <div class="row">
         {% for projects in projects %}
