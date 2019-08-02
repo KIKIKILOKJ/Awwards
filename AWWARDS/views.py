@@ -55,7 +55,7 @@ def profile(request):
         profile = Profile.objects.all()
         projects=Projects.objects.all()
         print (user)
-        return render(request,"profile/profile.html",{ "user": user,"profile": profile,"projects": projects})
+        return render(request,"Profile/profile.html",{ "user": user,"profile": profile,"projects": projects})
 
 @login_required(login_url='/accounts/login')
 def edit_profile(request):

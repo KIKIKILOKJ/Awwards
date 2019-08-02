@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container" >
+    <div class="row" >
+    <!-- displaying  Username-->
+        <div class="col-md-9">
+            <!--Display profile photo-->
+            {% if profile.profile_picture %}
+                <img src="{{profile.profile_picture.url}}" alt="" class="img-thumbnail">
+            {% endif %}
+            <h3> {{user.username}} </h3>
+            <!--Displaying user bio-->
+            {% if profile.bio %}
+              <p> {{profile.bio}}</p>
+            {% else%}
+              <p> {{users.username}} has no bio </p>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            {% if user.username == user.username %}
+            <a href="{% url 'edit_profile' %}"><button class="btn btn-outline-dark" type="submit">Edit profile</button></a>
+            <a href="{% url 'new_projects' %}"><button class="btn btn-outline-dark" type="submit">New Project</button></a>
+            {% endif %}
+        </div>
+    </div>
+    
+    
+</div>
+
+
+{% endblock %}
