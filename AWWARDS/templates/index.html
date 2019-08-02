@@ -12,9 +12,9 @@
                 <h3> {{ projects.title }} </h3>
             </div>
             <div class="card-body">
-                <img class="img" src="{{projects.image.url}}" alt="Project Pic"style="width:400px;height:500px;">
+                <img class="img" src="{{projects.image.url}}" alt="Project Pic"style="width:700px;height:700px;">
                 <p>Posted <strong>{{projects.pub_date|timesince}}</strong> ago</p>
-                <p>by <strong>{{projects.profile.user}}</strong></p>
+                <p>by <strong>{{user.username}}</strong></p>
                 <a><i class="glyphicon glyphicon-edit">RATE</i></a>
             </div>
         </div>
