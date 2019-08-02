@@ -1,0 +1,25 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>AWWARDS- {{title}}</title>
+    {% else %}
+    <title> AWWARDS </title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    {% endblock %}
+    <style media="screen">
+        @media only screen and (max-width: 600px) {
+        #img {
+            width:80vw;
+        }
+        }
+    </style>
+</head>
+<body>
