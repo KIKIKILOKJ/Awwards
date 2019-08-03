@@ -13,6 +13,8 @@
             </div>
             <div class="card-body">
                 <img class="img" src="{{projects.image.url}}" alt="Project Pic"style="width:700px;height:700px;">
+                <h4>{{projects.description}}</h4>
+                <hr>
                 <p>Posted <strong>{{projects.pub_date|timesince}}</strong> ago</p>
                 <p>by <strong>{{user.username}}</strong></p>
                 <a href={{projects.ratereview}}><button class="btn btn-outline-dark" type="submit">RATE</button></a>
