@@ -11,7 +11,9 @@ urlpatterns = [
     url(r'^profile$',views.profile,name='profile'),
     url(r'^edit_profile$',views.edit_profile,name='edit_profile'),
     url(r'^new_review$',views.review,name='new_review'),
+    url(r'^api/profiles/$', views.ProfileList.as_view()),
 ]
 
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+    
