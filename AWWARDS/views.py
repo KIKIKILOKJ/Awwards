@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectsSerializer
 from rest_framework import status
-
+from .permissions import IsAdminOrReadOnly
 
 
 # Create your views here.
@@ -97,6 +97,7 @@ class ProfileList(APIView):
     def get(self, request, format=None):
         all_profiles = Profile.objects.all()
         serializers = ProfileSerializer(all_profiles, many=True)
+        permission_classes = (IsAdminOrReadOnly,)
         return Response(serializers.data)
     
     def post(self, request, format=None):
@@ -105,5 +106,3 @@ class ProfileList(APIView):
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-
