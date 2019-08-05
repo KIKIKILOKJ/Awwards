@@ -43,7 +43,7 @@ class RateReview(models.Model):
     design=models.PositiveIntegerField(validators=[MinValueValidator(0),MaxValueValidator(10)])
     usability = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     content = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
-    project=models.ForeignKey(Projects)
+    project=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now=True)
 
     def save_ratereview(self):
