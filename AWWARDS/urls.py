@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^edit_profile$',views.edit_profile,name='edit_profile'),
     url(r'^new_review$',views.review,name='new_review'),
     url(r'^api/profiles/$', views.ProfileList.as_view()),
+    url(r'^api/projects/$', views.ProjectsList.as_view()),
 ]
 
 if settings.DEBUG:
