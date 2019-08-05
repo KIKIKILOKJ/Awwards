@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'AWWARDS',
     'bootstrap4',
     'bootstrap3',
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',
