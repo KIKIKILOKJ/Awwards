@@ -4,6 +4,10 @@ from .models import Projects,Profile
 from django.contrib.auth.decorators import login_required
 from .forms import ProjectsForm,EditProfileForm,RateReviewForm
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer, ProjectsSerializer
+from rest_framework import status
 
 
 # Create your views here.
@@ -88,3 +92,8 @@ def review(request):
             form=RateReviewForm()
         return render(request,'review.html',{"form": form,"profile":profile})
     
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
