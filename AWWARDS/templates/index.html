@@ -3,7 +3,7 @@
 {% block content %}
 {{block.super}}
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
     <div class="col-md-6"></div>
         {% for projects in projects %}
@@ -18,7 +18,7 @@
                 <hr>
                 <p>Posted <strong>{{projects.pub_date|timesince}}</strong> ago</p>
                 <p>by <strong>{{user.username}}</strong></p>
-                <a href={{projects.ratereview}}><button class="btn btn-outline-dark" type="submit">RATE</button></a>
+                <a href={{projects.id.ratereview}}><button class="btn btn-outline-dark" type="submit">RATE</button></a>
                 <a href={{projects.link}}><button class="btn btn-outline-dark" type="submit">VISIT SITE</button></a>
             </div>
         </div>
