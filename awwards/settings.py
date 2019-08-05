@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap3',
     'rest_framework',
+    'rest_framework.authtoken',
 
     'django.contrib.admin',
     'django.contrib.auth',
